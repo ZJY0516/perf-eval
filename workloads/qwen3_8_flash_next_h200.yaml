@@ -1,12 +1,12 @@
 name: qwen3_8_flash_next-h200
 gpu: H200
-num_gpus: 4
+num_gpus: 8
 nightly: true
 
 vllm:
   model: Qwen/Qwen3.8-Flash-Next-FP8
   serve_args: >-
-    --tensor-parallel-size 4
+    --tensor-parallel-size 8
     --enable-expert-parallel
     --speculative-config.method mtp
     --speculative-config.num_speculative_tokens 2
