@@ -5,11 +5,11 @@ nightly: true
 
 vllm:
   model: Qwen/Qwen3.8-Flash-Next-FP8
-  # MTP disabled: FP8-block-scale MTP expert weights fail to load
-  # (vllm-project/vllm#55496); re-enable once fix PR #55498 lands.
   serve_args: >-
     --tensor-parallel-size 4
     --enable-expert-parallel
+    --speculative-config.method mtp
+    --speculative-config.num_speculative_tokens 2
     --reasoning-parser qwen3
     --trust-remote-code
     --max-num-seqs 256
