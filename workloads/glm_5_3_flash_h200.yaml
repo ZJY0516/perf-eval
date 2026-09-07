@@ -1,12 +1,12 @@
 name: glm_5_3_flash-h200
 gpu: H200
-num_gpus: 8
+num_gpus: 4
 nightly: true
 
 vllm:
   model: zai-org/GLM-5.3-Flash
   serve_args: >-
-    --tensor-parallel-size 8
+    --tensor-parallel-size 4
     --speculative-config.method mtp
     --speculative-config.num_speculative_tokens 5
     --tool-call-parser glm47
